@@ -12,7 +12,7 @@ var con = mysql.createConnection({
 
 con.connect(function(err) {
     if(err) throw err;
-    console.log("Connected!");
+    console.log("Terhubung!");
 });
 
 const app = express();
@@ -33,11 +33,11 @@ app.post("/", function(req, res){
     var sql = "INSERT INTO absen (nama, absen) VALUES('" + nama + "','" + absen + "')";
     con.query(sql, function(err, result){
         if(err) throw err;
-        console.log("Rec inserted!");
+        console.log("Berhasil memasukkan record!");
     });
     res.sendFile(__dirname + "/terimakasih.html")
 });
 
 app.listen(3000, function(){
-    console.log("server is running on port 3000")
+    console.log("server berjalan di port 3000")
 });
